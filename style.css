@@ -1,179 +1,67 @@
-/* ========= RESET ========= */
-* {
+/* General page setup */
+body {
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  text-align: center;
 }
 
-html, body {
-  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
-  background-color: #fafafa;
-  color: #1e1e2e;
-  line-height: 1.7;
-  overflow-x: hidden;
+/* Headings */
+h1, h2 {
+  font-weight: 600;
+  margin: 20px 0 10px;
 }
 
-/* ========= HEADER ========= */
-header {
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.2rem 6%;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+h1 {
+  font-size: 2rem;
 }
 
-.logo {
-  width: 90px;
-  height: auto;
+h2 {
+  font-size: 1.4rem;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+/* Paragraphs */
+p {
+  margin: 0 auto 15px;
+  max-width: 600px;
+  padding: 0 15px;
 }
 
-nav a {
+/* Buttons or links */
+a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0077cc;
   text-decoration: none;
-  color: #1e1e2e;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #003399;
-}
-
-/* ========= HERO SECTION ========= */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: #f1f3f8;
-  padding: 3rem 0;
-}
-
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  width: 90%;
-  gap: 2rem;
-}
-
-.hero img {
-  width: 220px;
-  height: auto;
   border-radius: 8px;
-  object-fit: cover;
+  font-weight: 500;
 }
 
-.hero-text {
-  flex: 1 1 400px;
-  text-align: left;
+a:hover {
+  background-color: #005fa3;
 }
 
-.hero-text h1 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+/* Images – smaller and responsive */
+img {
+  max-width: 25%; /* makes images about 4x smaller */
+  height: auto;
+  border-radius: 10px;
+  margin: 15px auto;
+  display: block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.hero-text p {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-/* ========= SECTION HEADINGS ========= */
-section {
-  padding: 4rem 0;
-  text-align: center;
-  background-color: #fff;
-}
-
-section:nth-child(even) {
-  background-color: #f7f8fc;
-}
-
-section h2 {
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  color: #1e1e2e;
-}
-
-/* ========= TEXT BLOCKS ========= */
-section p {
-  max-width: 850px;
-  margin: 0 auto 1.2rem;
-  font-size: 0.95rem;
-  color: #333;
-  text-align: justify;
-}
-
-/* ========= FOOTER ========= */
-footer {
-  background-color: #fff;
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.85rem;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-/* ========= RESPONSIVE DESIGN ========= */
-@media (max-width: 1024px) {
-  header {
-    flex-direction: column;
-    padding: 1rem 4%;
-  }
-
-  .logo {
-    width: 70px;
-  }
-
-  nav {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .hero img {
-    width: 180px;
-  }
-
-  .hero-text h1 {
-    font-size: 1.3rem;
-  }
-
-  section h2 {
-    font-size: 1.1rem;
-  }
-
-  section p {
-    font-size: 0.9rem;
-  }
-}
-
+/* For small screens, let images grow a bit */
 @media (max-width: 600px) {
-  .hero-container {
-    flex-direction: column;
+  img {
+    max-width: 60%;
   }
-
-  .hero-text {
-    text-align: center;
-  }
-
-  .hero img {
-    width: 160px;
+  h1 {
+    font-size: 1.5rem;
   }
 }
