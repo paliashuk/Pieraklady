@@ -1,246 +1,140 @@
-/* RESET & BASE STYLE */
+/* General reset */
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: #030351;
-  scroll-padding-top: 120px;
-}
-
-::selection {
-  color: #000;
-  background: #c7c7ed;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.5;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #f5f5fa;
+  color: #0c0c40;
+  line-height: 1.6;
   overflow-x: hidden;
-  background-color: #fff;
 }
 
-/* GLOBAL ELEMENTS */
-main, section {
-  width: 100%;
-}
-
-h1, h2, h3, h4, h5 {
-  text-align: center;
-  margin: 1rem 0;
-  letter-spacing: 0.5px;
-  max-inline-size: 100%;
-}
-
-h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 0.25rem;
-  margin-bottom: 2rem;
-}
-
-h2 {
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-h3 {
-  font-size: 1.3rem;
-  font-weight: 500;
-}
-
-p {
-  margin: 0.8rem 0;
-  font-size: 1.1rem;
-}
-
-a {
-  text-decoration: none;
-  font-size: 1.1rem;
-  color: inherit;
-}
-
-a:hover {
-  opacity: 0.7;
-}
-
-/* HEADER */
+/* Header / Logo */
 header {
-  background-color: #fff;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  padding: 1rem 8%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  z-index: 10;
+  padding: 2rem 6%;
+  background-color: #fff;
 }
 
-#loichyts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 220px;
+.logo {
+  width: 120px;
+  height: auto;
 }
 
-#loichyts h2, #loichyts h3 {
-  margin: 0;
-  text-align: left;
+nav a {
+  color: #0c0c40;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-left: 1.5rem;
+  transition: color 0.3s;
 }
 
-.top-nav {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: center;
+nav a:hover {
+  color: #002a8d;
 }
 
-.lang_switch {
-  margin-left: auto;
-  white-space: nowrap;
-}
-
-/* HERO / START SECTION */
-#start {
-  background-color: #e3e3ef;
-  padding: 60px 10%;
+/* Hero / Intro section */
+.hero {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  text-align: center;
+  padding: 2rem 5%;
+  background-color: #eaeaf6;
 }
 
-#loichyts_photo {
-  width: 28rem;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  display: block;
+.hero img {
+  width: 200px;
+  border-radius: 10px;
+  margin: 1rem;
 }
 
-#start h2 {
-  font-size: 2rem;
+.hero-text {
+  max-width: 600px;
+  padding: 1rem;
+}
+
+.hero-text h1 {
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
-/* SECTIONS */
-section {
-  padding: 60px 15%;
+.hero-text p {
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
 }
 
-#about, #services, #clients_say, #contact {
-  background-color: #f7f7fb;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  padding: 60px 10%;
-}
-
-#services, #clients_say {
+/* Section titles */
+section h2 {
   text-align: center;
-}
-
-#clients {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin: 40px auto;
-}
-
-#clients img {
-  max-width: 100px;
-  height: auto;
-}
-
-/* QUOTES */
-blockquote {
-  font-style: italic;
-  font-size: 1.6rem;
-  border-left: 5px solid #030351;
-  padding-left: 1rem;
-  margin: 2rem auto;
-  background-color: #f1f1fb;
-}
-
-/* CONTACT */
-#contact a, #contact b {
+  margin-top: 3rem;
   font-size: 1.3rem;
-  font-weight: 500;
+  letter-spacing: 1px;
 }
 
-#contact h3 {
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 600;
+/* Paragraphs */
+section p {
+  max-width: 900px;
+  margin: 1rem auto;
+  font-size: 0.95rem;
+  text-align: justify;
 }
 
-/* FOOTER */
-footer {
-  background: #fff;
-  padding: 40px 10%;
-  text-align: left;
-}
-
-footer h2 {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-footer h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-/* RESPONSIVE FIXES */
+/* Responsive fixes */
 @media (max-width: 1024px) {
-  h1 {
-    font-size: 2.5rem;
-  }
   header {
     flex-direction: column;
-    align-items: flex-start;
+    padding: 1.5rem 4%;
   }
-  #start {
-    padding: 40px 5%;
-  }
-}
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
+  .logo {
+    width: 90px;
   }
-  h2 {
-    font-size: 1.4rem;
-  }
-  p, li, a {
-    font-size: 1rem;
-  }
-  section {
-    padding: 40px 5%;
-  }
-  #loichyts_photo {
-    width: 90%;
-    margin: 0 auto 20px;
-  }
-}
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.6rem;
+  nav a {
+    font-size: 0.85rem;
+    margin: 0.3rem 0.7rem;
   }
-  h2 {
+
+  .hero {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .hero img {
+    width: 150px;
+  }
+
+  .hero-text h1 {
     font-size: 1.2rem;
   }
-  header {
-    padding: 1rem 5%;
+
+  .hero-text p, section p {
+    font-size: 0.9rem;
   }
-  #clients img {
-    max-width: 70px;
+}
+
+@media (min-width: 1440px) {
+  body {
+    font-size: 1.05rem;
+  }
+
+  .hero img {
+    width: 230px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  nav a {
+    font-size: 1rem;
   }
 }
