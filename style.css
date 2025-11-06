@@ -44,11 +44,11 @@ header h1{
     margin: 0;
 }
 header h2{
-    size: 300px;
+    size: 200px;
     font-weight: 600;
 }
 header > #loichyts{
-    width: 300px;
+    width: 200px;
 }
 .top-nav{
     display: flex;
