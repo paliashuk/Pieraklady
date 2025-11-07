@@ -1,4 +1,8 @@
-/* General page setup */
+/* Base setup */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -6,31 +10,39 @@ body {
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
+}
+
+/* Centered container with max width */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
   text-align: center;
 }
 
 /* Headings */
 h1, h2 {
   font-weight: 600;
-  margin: 20px 0 10px;
+  margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 /* Paragraphs */
 p {
-  margin: 0 auto 15px;
-  max-width: 600px;
-  padding: 0 15px;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 1rem;
 }
 
-/* Buttons or links */
+/* Links and buttons */
 a {
   display: inline-block;
   margin: 10px;
@@ -40,28 +52,69 @@ a {
   text-decoration: none;
   border-radius: 8px;
   font-weight: 500;
+  transition: background 0.3s;
 }
 
 a:hover {
   background-color: #005fa3;
 }
 
-/* Images – smaller and responsive */
+/* Image styling – small and responsive */
 img {
-  max-width: 25%; /* makes images about 4x smaller */
+  max-width: 180px;  /* fixed small width */
   height: auto;
   border-radius: 10px;
-  margin: 15px auto;
-  display: block;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-/* For small screens, let images grow a bit */
-@media (max-width: 600px) {
-  img {
-    max-width: 60%;
+/* Two-column section layout */
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.section img {
+  flex: 1 1 180px;
+  max-width: 200px;
+}
+
+.section .text {
+  flex: 1 1 60%;
+  text-align: left;
+  padding: 10px 20px;
+}
+
+/* Footer or small text */
+footer {
+  font-size: 0.9rem;
+  margin-top: 50px;
+  color: #666;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    text-align: center;
   }
+
+  .section .text {
+    text-align: center;
+  }
+
+  img {
+    max-width: 70%;
+  }
+
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
   }
 }
