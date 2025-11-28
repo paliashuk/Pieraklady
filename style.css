@@ -1,313 +1,364 @@
-/* =======================================
-   GLOBAL SETTINGS
-======================================= */
+/* =====================
+   DESIGN TOKENS & RESET
+====================== */
 :root {
-  /* Layout */
-  --max-width: 1200px;
-  --space-1: 0.5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2rem;
-  --space-6: 3rem;
-  --space-8: 4rem;
+  /* Colors */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0b1220;
+  --muted: #6b7280;
+  --brand-1: #6c8ef5;
+  --brand-2: #7ce0c9;
+  --border: rgba(15,23,36,0.08);
+  --shadow-1: 0 6px 18px rgba(6,15,30,0.12);
+  --glass: rgba(255,255,255,0.06);
 
-  /* Colors (modern neutral + brand) */
-  --color-text: #1d1d1d;
-  --color-text-muted: #6a6a6a;
-  --color-border: #e1e1e1;
-  --color-bg-light: #fafafa;
-  --color-brand: #3a6ea5;
-  --color-brand-light: #e8f0fa;
+  /* Radii & spacing */
+  --radius: 12px;
+  --space-1: 6px;
+  --space-2: 12px;
+  --space-3: 20px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 72px;
 
-  /* Typography */
-  --font-main: "Inter", "Raleway", sans-serif;
+  /* Typography scale */
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 20px;
+  --fs-xl: 28px;
+  --fs-xxl: 40px;
 
-  /* Fluid typography (scales from mobile to desktop) */
-  --fs-body: clamp(15px, 1.4vw, 18px);
-  --fs-h1: clamp(1.9rem, 3vw, 2.4rem);
-  --fs-h2: clamp(1.4rem, 2vw, 1.7rem);
-  --fs-h3: clamp(1.15rem, 1.8vw, 1.3rem);
+  --container-max: 1200px;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Raleway', var(--font-sans);
+}
+
+/* Base resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--font-main);
   margin: 0;
   padding: 0;
-  color: var(--color-text);
-  background: #fff;
-  line-height: 1.7;
-  font-size: var(--fs-body);
 }
 
-/* =======================================
-   LAYOUT CONTAINERS
-======================================= */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container */
 main {
-  max-width: var(--max-width);
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: var(--space-4) var(--space-2);
+  padding: var(--space-4) var(--space-3);
 }
 
-section {
-  margin-bottom: var(--space-8);
+/* Headings */
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: var(--space-3);
+  line-height: 1.1;
 }
 
-/* =======================================
-   HEADER
-======================================= */
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-2);
+  line-height: 1.3;
+}
+
+p, li {
+  font-size: var(--fs-md);
+  color: var(--text);
+  margin-bottom: var(--space-2);
+}
+
+small, .small {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+ul {
+  list-style: disc inside;
+  padding-left: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: var(--space-4) 0;
+}
+
+/* =====================
+   HEADER & NAV
+====================== */
 header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-2) var(--space-3);
-  border-bottom: 1px solid var(--color-border);
-  row-gap: var(--space-2);
+  padding: var(--space-3) var(--space-3);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+}
+
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
 #logo {
-  height: 45px;
+  height: 48px;
   width: auto;
 }
 
-#loichyts {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 1.25;
-}
-
-#loichyts h2 {
-  font-size: var(--fs-h3);
-  margin: 0;
-  font-weight: 700;
-}
-
-#loichyts h3 {
-  font-size: 0.95rem;
-  margin: 0;
-  font-weight: 500;
-  color: var(--color-text-muted);
-}
-
-/* =======================================
-   NAVIGATION
-======================================= */
-.top-nav {
+nav.top-nav {
   display: flex;
   flex-wrap: wrap;
+  gap: var(--space-3);
   align-items: center;
-  gap: var(--space-2);
-  font-size: 1rem;
 }
 
-.top-nav a {
-  color: var(--color-text);
-  text-decoration: none;
+nav.top-nav a {
   font-weight: 500;
-  padding: 0.2rem 0.1rem;
+  padding: 0.3rem 0.2rem;
   transition: color 0.2s ease;
 }
 
-.top-nav a:hover {
-  color: var(--color-brand);
+nav.top-nav a:hover {
+  color: var(--brand-1);
 }
 
+/* Language switch inside nav */
 .lang_switch {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: var(--space-1);
 }
 
 .lang_switch .divider {
-  color: var(--color-text-muted);
+  color: var(--muted);
 }
 
-/* =======================================
-   HERO / START SECTION
-======================================= */
-#start {
-  margin-top: var(--space-6);
+/* =====================
+   BUTTONS / CTA
+====================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
 }
 
-/* Desktop layout for hero */
+.btn-primary {
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  color: white;
+  box-shadow: 0 8px 24px rgba(46,72,180,0.18);
+  border: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--brand-1);
+  border: 1px solid var(--brand-1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  transition: all 200ms ease;
+}
+
+/* =====================
+   HERO SECTION
+====================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-5) var(--space-3);
+  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  color: white;
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--shadow-1);
+  margin-bottom: var(--space-6);
+}
+
 @media (min-width: 900px) {
-  #start {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    align-items: center;
-    gap: var(--space-6);
+  .hero {
+    grid-template-columns: 52% 48%;
+    padding: calc(var(--space-5) * 1.2) var(--space-4);
   }
 }
 
-#start img#loichyts_photo {
-  width: 220px;
-  max-width: 70vw;
-  height: auto;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto var(--space-3) auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+.hero h1 {
+  margin: 0 0 var(--space-3) 0;
 }
 
-#start h2 {
-  font-size: var(--fs-h1);
-  font-weight: 700;
-  margin-bottom: var(--space-1);
-  text-align: center;
-}
-
-#start h3 {
-  text-align: center;
-  font-size: var(--fs-h3);
-  font-weight: 500;
-  margin: 0.2rem 0;
-  color: var(--color-text-muted);
-}
-
-#start hr {
-  width: 50%;
-  margin: var(--space-3) auto;
-  border: 0;
-  border-top: 1px solid var(--color-border);
-}
-
-#start p,
-#start ul {
-  max-width: 750px;
-  margin: var(--space-2) auto;
-  text-align: left;
-}
-
-#start ul {
-  list-style: disc;
-  padding-left: var(--space-3);
-}
-
-/* =======================================
-   BODY CONTENT
-======================================= */
-h1 {
-  font-size: var(--fs-h1);
+.hero .lead {
+  font-size: var(--fs-lg);
+  opacity: 0.95;
   margin-bottom: var(--space-3);
-  font-weight: 700;
-  letter-spacing: 0.4px;
 }
 
-h2 {
-  font-size: var(--fs-h2);
-  margin-top: var(--space-6);
+.hero .hero-media img {
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px rgba(8,18,40,0.25);
+}
+
+/* =====================
+   SERVICES GRID / CARD
+====================== */
+.services-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 20px rgba(20,30,50,0.06);
+}
+
+.card h3 {
   margin-bottom: var(--space-2);
-  font-weight: 600;
 }
 
-p,
-ul {
-  color: var(--color-text);
-  max-width: 750px;
-  margin: var(--space-2) auto;
-  font-size: 1rem;
+.card p, .card li {
+  color: var(--muted);
+  font-size: var(--fs-sm);
 }
 
-ul li {
-  margin-bottom: 0.4rem;
-}
-
-/* =======================================
-   CLIENTS SECTION
-======================================= */
-#clients {
+/* =====================
+   CLIENTS / TRUST LOGOS
+====================== */
+.clients {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-3) var(--space-6);
-  margin-top: var(--space-3);
+  gap: var(--space-4) var(--space-5);
+  padding: var(--space-3) 0;
 }
 
-#clients img {
-  height: 55px;
-  width: auto;
-  object-fit: contain;
+.clients img {
+  height: 48px;
   opacity: 0.8;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: transform 0.18s ease, opacity 0.18s ease;
 }
 
-#clients img:hover {
+.clients img:hover {
+  transform: translateY(-4px);
   opacity: 1;
-  transform: scale(1.06);
 }
 
-/* =======================================
+/* =====================
+   TESTIMONIAL / QUOTE
+====================== */
+.quote {
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  border-radius: var(--space-1);
+  padding: var(--space-3);
+  border-left: 4px solid var(--brand-1);
+  box-shadow: 0 10px 30px rgba(10,20,50,0.06);
+  margin-bottom: var(--space-4);
+}
+
+blockquote {
+  font-style: italic;
+  color: #273043;
+  margin: 0;
+}
+
+/* =====================
    FOOTER
-======================================= */
+====================== */
 footer {
-  background-color: var(--color-bg-light);
-  padding: var(--space-6) var(--space-2);
+  background: var(--surface);
+  padding: var(--space-5) var(--space-3);
   text-align: center;
+  border-top: 1px solid var(--border);
 }
 
-footer h2 {
-  font-size: var(--fs-h3);
-  margin-bottom: var(--space-1);
-  font-weight: 600;
-}
-
-footer h3,
-footer p {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  margin: 0.25rem 0;
+footer h2, footer h3 {
+  margin: var(--space-1) 0;
 }
 
 footer h4 a {
-  color: var(--color-brand);
-  text-decoration: none;
-  font-weight: 600;
+  color: var(--brand-1);
+  font-weight: 500;
 }
 
 footer h4 a:hover {
   text-decoration: underline;
 }
 
-/* =======================================
-   RESPONSIVE DESIGN
-======================================= */
+/* =====================
+   RESPONSIVE TWEAKS
+====================== */
 @media (max-width: 900px) {
-  header {
-    align-items: flex-start;
-  }
-
-  #start img#loichyts_photo {
-    width: 160px;
-  }
-
-  #clients img {
-    height: 45px;
+  .services-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 600px) {
   header {
-    padding: var(--space-2);
+    padding: var(--space-2) var(--space-2);
   }
-
-  h1 {
-    font-size: 1.9rem;
-  }
-
-  h2 {
-    font-size: 1.35rem;
-  }
-
-  p, ul {
-    font-size: 0.95rem;
-  }
-
-  #clients img {
-    height: 40px;
+  .hero {
+    padding: var(--space-4) var(--space-2);
   }
 }
