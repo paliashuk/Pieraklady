@@ -147,8 +147,9 @@ header .brand {
   gap: var(--space-2);
 }
 
+/* FIX: Smaller header logo */
 #logo {
-  height: 48px;
+  height: 40px;
   width: auto;
 }
 
@@ -250,6 +251,14 @@ nav.top-nav a:hover {
   box-shadow: 0 18px 40px rgba(8,18,40,0.25);
 }
 
+/* FIX: Limit hero image size */
+.hero .hero-media img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 /* =====================
    SERVICES GRID / CARD
 ====================== */
@@ -293,8 +302,11 @@ nav.top-nav a:hover {
   padding: var(--space-3) 0;
 }
 
+/* FIX: Smaller and consistent logo sizes */
 .clients img {
-  height: 48px;
+  height: 40px;
+  max-width: 120px;
+  object-fit: contain;
   opacity: 0.8;
   transition: transform 0.18s ease, opacity 0.18s ease;
 }
