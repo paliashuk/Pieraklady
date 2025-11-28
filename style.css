@@ -246,18 +246,11 @@ nav.top-nav a:hover {
   margin-bottom: var(--space-3);
 }
 
-.hero .hero-media img {
-  border-radius: var(--radius);
-  box-shadow: 0 18px 40px rgba(8,18,40,0.25);
-}
-
-/* FIX: Limit hero image size */
-.hero .hero-media img {
-  max-width: 420px;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
+/* =====================
+   HERO IMAGE (NEW CROPPED SQUARE)
+====================== */
+.hero .hero-media {
+  display: f
 
 /* =====================
    SERVICES GRID / CARD
