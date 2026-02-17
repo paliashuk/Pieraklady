@@ -1,37 +1,17 @@
-/* =====================
-   DESIGN TOKENS & RESET
-====================== */
+/* =========================
+   ROOT & RESET
+========================= */
+
 :root {
   --bg: #ffffff;
-  --surface: #ffffff;
-  --text: #0b1220;
-  --muted: #6b7280;
-  --brand-1: #6c8ef5;
-  --brand-2: #7ce0c9;
-  --border: rgba(15,23,36,0.08);
-  --shadow-1: 0 6px 18px rgba(6,15,30,0.12);
-
-  --radius: 12px;
-  --space-1: 6px;
-  --space-2: 12px;
-  --space-3: 20px;
-  --space-4: 32px;
-  --space-5: 48px;
-  --space-6: 72px;
-
-  --fs-sm: 14px;
-  --fs-md: 16px;
-  --fs-lg: 20px;
-
-  --container-max: 1200px;
-
-  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-display: 'Raleway', var(--font-sans);
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2f6fed;
+  --border: rgba(15, 23, 42, 0.08);
+  --radius: 14px;
+  --container: 1100px;
 }
 
-/* =====================
-   RESET
-====================== */
 *,
 *::before,
 *::after {
@@ -40,224 +20,207 @@
 
 body {
   margin: 0;
-  font-family: var(--font-sans);
-  font-size: var(--fs-md);
-  line-height: 1.6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  color: var(--accent);
 }
 
 main {
-  max-width: var(--container-max);
+  max-width: var(--container);
   margin: 0 auto;
-  padding: var(--space-4) var(--space-3);
+  padding: 60px 20px;
 }
 
-/* =====================
-   HEADINGS
-====================== */
+/* =========================
+   TYPOGRAPHY
+========================= */
+
 h1 {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: "Raleway", sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: var(--space-3);
-  line-height: 1.1;
+  margin-bottom: 20px;
 }
 
 h2 {
-  font-family: var(--font-display);
-  margin-bottom: var(--space-2);
+  font-family: "Raleway", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
 h3 {
-  font-family: var(--font-display);
-  font-size: var(--fs-lg);
-  margin-bottom: var(--space-2);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
 }
 
-p, li {
-  margin-bottom: var(--space-2);
+p {
+  margin-bottom: 16px;
 }
 
 ul {
-  padding-left: var(--space-3);
+  padding-left: 20px;
+  margin-bottom: 30px;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: var(--space-4) 0;
-}
-
-/* =====================
+/* =========================
    HEADER
-====================== */
+========================= */
+
 header {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+
+.header-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-3);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 100;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: inherit;
 }
 
 #logo {
   height: 40px;
 }
 
-nav.top-nav {
-  display: flex;
-  gap: var(--space-3);
-  flex-wrap: wrap;
+.brand-name {
+  font-weight: 600;
 }
 
-/* =====================
-   HERO SECTION
-====================== */
+.brand-sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.top-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.lang-switch {
+  color: var(--muted);
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-  align-items: start;
-  padding: var(--space-5) var(--space-3);
-  background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+  background: linear-gradient(135deg, #6c8ef5, #7ce0c9);
   color: white;
-  border-radius: 0 0 var(--radius) var(--radius);
-  box-shadow: var(--shadow-1);
-  margin-bottom: var(--space-6);
+  padding: 80px 20px;
 }
 
-/* Desktop: image left (small), text wide */
-@media (min-width: 900px) {
-  .hero {
-    grid-template-columns: 110px 1fr; /* exact image width + flexible text */
-  }
-}
-
-/* Make ANY image inside hero small */
-.hero img {
-  width: 110px;
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: 0 10px 25px rgba(8,18,40,0.25);
-}
-
-/* Ensure text fills remaining space */
-.hero > *:not(img) {
-  width: 100%;
-}
-
-/* =====================
-   SERVICES GRID
-====================== */
-.services-grid {
-  display: grid;
-  gap: var(--space-4);
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 900px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.card {
-  background: var(--surface);
-  padding: var(--space-3);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 20px rgba(20,30,50,0.06);
-}
-
-/* =====================
-   CLIENT LOGOS
-====================== */
-#clients {
+.hero-inner {
+  max-width: var(--container);
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-4);
-  padding: var(--space-3) 0;
+  gap: 50px;
+  align-items: center;
 }
 
-#clients img {
-  height: 40px;
-  object-fit: contain;
-  opacity: 0.85;
-}
-
-/* =====================
-   TESTIMONIALS
-====================== */
-blockquote {
-  font-style: italic;
-  margin-bottom: var(--space-2);
-}
-
-/* =====================
-   FOOTER
-====================== */
-footer {
-  text-align: center;
-  padding: var(--space-5) var(--space-3);
-  border-top: 1px solid var(--border);
-}
-
-/* =====================
-   MOBILE TWEAKS
-====================== */
-@media (max-width: 600px) {
-  .hero {
-    padding: var(--space-4) var(--space-2);
-  }
-}
-/* =====================
-   START SECTION FIX
-====================== */
-
-#start {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  padding: 60px 20px;
-}
-
-/* Make photo small and fixed width */
-#loichyts_photo {
-  width: 110px;
-  height: auto;
+.hero-photo {
+  width: 160px;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
 }
 
-/* Make text block take remaining width */
-#start h2,
-#start h3 {
-  flex: 1;
+.hero-text p {
+  margin-bottom: 10px;
 }
 
-/* Stack on mobile */
-@media (max-width: 800px) {
-  #start {
+.hero-lead {
+  font-size: 1.2rem;
+  opacity: 0.95;
+}
+
+.hero-services,
+.hero-fields {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+  margin-bottom: 80px;
+}
+
+.intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px auto;
+}
+
+blockquote {
+  font-style: italic;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+#contact a {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero-inner {
     flex-direction: column;
+    text-align: center;
   }
 
-  #loichyts_photo {
-    margin-bottom: 20px;
+  .hero-photo {
+    width: 140px;
+  }
+
+  .top-nav {
+    display: none;
   }
 }
