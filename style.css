@@ -224,3 +224,22 @@ footer {
     display: none;
   }
 }
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 500;
+}
+
+.lang-switch a {
+  opacity: 0.6;
+  transition: 0.2s ease;
+}
+
+.lang-switch a:hover {
+  opacity: 1;
+}
+
+.lang-switch strong {
+  font-weight: 700;
+}
