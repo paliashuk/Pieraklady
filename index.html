@@ -2,31 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pieraklady — Choose your language</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pieraklady — Language Services</title>
+  <meta name="description" content="Professional language services in Belarusian, Ukrainian, Russian, and English.">
+
   <style>
-    body { 
-      font-family: sans-serif; 
-      text-align: center; 
-      margin-top: 100px; 
-      background: #fafafa; 
+    :root {
+      --bg: #f4f6f8;
+      --text: #0b1220;
+      --muted: #6b7280;
+      --accent: #2f6fed;
     }
-    a { 
-      margin: 0 15px; 
-      text-decoration: none; 
-      color: #0077cc; 
-      font-size: 20px; 
+
+    * {
+      box-sizing: border-box;
     }
-    a:hover { 
-      text-decoration: underline; 
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
     }
-  </style>
-</head>
-<body>
-  <h1>Welcome to Pieraklady!</h1>
-  <p>Please choose your language:</p>
-  <p>
-    <a href="en/">English</a>
-    <a href="be/">Беларуская</a>
-  </p>
-</body>
-</html>
+
+    .container {
+      background: white;
+      padding: 60px 40px;
+      border-radius: 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      margin-bottom: 30px;
+      color: var(--muted);
+    }
+
+    .lang-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 18px;
+    }
+
+    .lang-links a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .lang-links a:hover {
+      background: rgba(47,111,237,0.08);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: va
