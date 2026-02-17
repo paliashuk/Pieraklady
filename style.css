@@ -128,6 +128,7 @@ nav.top-nav {
 /* =====================
    HERO SECTION
 ====================== */
+
 .hero {
   display: grid;
   grid-template-columns: 1fr;
@@ -141,26 +142,24 @@ nav.top-nav {
   margin-bottom: var(--space-6);
 }
 
-/* Desktop layout: small image left, text wide right */
+/* Desktop: image left (small), text wide */
 @media (min-width: 900px) {
   .hero {
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 110px 1fr; /* exact image width + flexible text */
   }
 }
 
-/* Image block */
-.hero .hero-media {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-/* Small portrait */
-.hero .hero-media img {
+/* Make ANY image inside hero small */
+.hero img {
   width: 110px;
   height: auto;
   border-radius: var(--radius);
   box-shadow: 0 10px 25px rgba(8,18,40,0.25);
+}
+
+/* Ensure text fills remaining space */
+.hero > *:not(img) {
+  width: 100%;
 }
 
 /* =====================
