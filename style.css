@@ -227,23 +227,37 @@ footer {
     padding: var(--space-4) var(--space-2);
   }
 }
-/* ===== FORCE HERO LAYOUT FIX ===== */
+/* =====================
+   START SECTION FIX
+====================== */
 
-.hero {
-  display: flex !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-  gap: 40px !important;
+#start {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 60px 20px;
 }
 
-/* Make first image small */
-.hero img {
-  width: 110px !important;
-  height: auto !important;
-  flex-shrink: 0 !important;
+/* Make photo small and fixed width */
+#loichyts_photo {
+  width: 110px;
+  height: auto;
+  flex-shrink: 0;
 }
 
-/* Make text take remaining width */
-.hero > div {
-  flex: 1 !important;
+/* Make text block take remaining width */
+#start h2,
+#start h3 {
+  flex: 1;
+}
+
+/* Stack on mobile */
+@media (max-width: 800px) {
+  #start {
+    flex-direction: column;
+  }
+
+  #loichyts_photo {
+    margin-bottom: 20px;
+  }
 }
